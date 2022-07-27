@@ -1,8 +1,9 @@
 import csv
 import pymongo
 
-client = pymongo.MongoClient("mongodb+srv://pymongo:pymongo@cluster0.f0tqt.gcp.mongodb.net/?retryWrites=true&w=majority")
-db = client["dbname"]
+client = pymongo.MongoClient("mongodb://localhost:27017")
+
+db = client["cnes"]
 
 #for x in db.users.find():
 #    print(x)
@@ -20,7 +21,7 @@ with open(filename) as f:
     x = x + 1
     dict_from_list = dict(zip(key_list, row))
     print(f"{x}\r", end = "")
-    db.users.insert_one(dict_from_list)
+    db.cnes.insert_one(dict_from_list)
     #if x > 1:
     #  break
 
